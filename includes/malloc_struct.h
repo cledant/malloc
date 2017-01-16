@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 14:39:12 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/16 15:34:47 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/16 20:07:32 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,20 @@ typedef struct			s_tiny
 {
 	struct s_tint		*prev;
 	struct s_tiny		*next;
-	char				state[TINY_STATE_TAB];
-	void				mem[TINY_MEM_TAB];
+	size_t				size;
+	size_t				used;
+	char				state[TINY_TAB];
+	void				mem[TINY_TAB];
 }						t_tiny;
 
 typedef struct			s_small
 {
+	struct s_small		*prev;
 	struct s_small		*next;
-	char				state[TINY_STATE_TAB];
-	void				mem[TINY_MEM_TAB];
+	size_t				size;
+	size_t				used;
+	char				state[SMALL_TAB];
+	void				mem[SMALL_TAB];
 }						t_small;
 
 #endif

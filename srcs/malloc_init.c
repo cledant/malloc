@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 13:41:31 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/16 15:34:52 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/16 16:19:09 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ int		malloc_init(char *init)
 {
 	if (malloc_getpagesize() != 4096)
 		return (-1);
-	if (malloc_init_tiny() == -1)
-		return (-1);
-	if (malloc_init_small() == -1)
-		return (-1);
+	if (malloc_get_tiny() == NULL)
+		return (-2);
+	if (malloc_get_small() == NULL)
+		return (-3);
 	*init = 1;
 	return (0);
 }
