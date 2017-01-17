@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 13:06:45 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 19:46:25 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/17 19:57:16 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ int					malloc_add_new_small(t_small *header); //ok
 void				*malloc_allocate_small(t_small *header,
 						const size_t nb_alloc, const short int user_id,
 						const short int alloc_id); //ok
+void				*malloc_large(const size_t size);
 
 #endif
