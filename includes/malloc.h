@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 13:00:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/16 20:07:27 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/17 11:23:20 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,13 @@
 # include "malloc_function.h"
 
 # define PAGESIZE 4096
-# define TINY_SIZE 16
-# define TINY_TAB 239
-# define SMALL_SIZE 32
-# define SMALL_TAB 123
-# define LARGE_SIZE 1024
+# define TINY_MIN_ALLOC 16
+# define TINY_MAX_ALLOC 64
+# define TINY_TAB 1024
+# define SMALL_MIN_ALLOC 128
+# define SMALL_MAX_ALLOC 4096
+# define SMALL_TAB 4096
+# define LARGE_MIN_ALLOC 8192
+# define LARGE_TAB 254
 
 #endif
