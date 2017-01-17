@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   malloc.h                                           :+:      :+:    :+:   */
+/*   malloc_get_small.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/16 13:00:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 13:29:56 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/17 12:34:32 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/17 13:53:48 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MALLOC_H
-# define MALLOC_H
+#include "malloc.h"
 
-# include <sys/mman.h>
-# include "libft.h"
-# include "malloc_function.h"
+t_small		*malloc_get_large(void)
+{
+	static t_large	*large = NULL;
+	static int		init = 0;
 
-# define PAGESIZE 4096
-# define TINY_MIN_ALLOC 16
-# define TINY_MAX_ALLOC 64
-# define TINY_TAB 1024
-# define SMALL_MIN_ALLOC 128
-# define SMALL_MAX_ALLOC 4096
-# define SMALL_TAB 4096
-# define LARGE_MIN_ALLOC 8192
-# define LARGE_TAB 254
-# define LARGE_PREALLOC 128
-
-# define NOT_USED 0
-
-#endif
+	if (init == 0)
+	{
+		if ((large = malloc_new_large()) == NULL)
+			return (NULL);
+		if (malloc_prealloc_large(&large) != 0)
+			return (NULL);
+		init = 1;
+	}
+	return (large);
+}

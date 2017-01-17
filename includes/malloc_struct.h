@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 14:39:12 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 12:29:38 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/17 13:41:59 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 typedef struct			s_tiny
 {
-	struct s_tint		*prev;
+	struct s_tiny		*prev;
 	struct s_tiny		*next;
 	int					max_alloc;
 	int					used_alloc;
@@ -42,7 +42,7 @@ typedef struct			s_large
 	unsigned char		max_alloc;
 	unsigned char		used_alloc;
 	size_t				size[LARGE_TAB];
-	void				mem[LARGE_TAB];
+	void				*mem;
 }						t_large;
 
 #endif

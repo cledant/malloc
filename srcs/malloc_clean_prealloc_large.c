@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   malloc.h                                           :+:      :+:    :+:   */
+/*   malloc_clean_prealloc_large.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/16 13:00:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 13:29:56 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/17 13:54:13 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/17 13:59:53 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MALLOC_H
-# define MALLOC_H
+#include "malloc.h"
 
-# include <sys/mman.h>
-# include "libft.h"
-# include "malloc_function.h"
+int		malloc_clean_prealloc_large(t_large **header)
+{
+	size_t		i;
+	void		*ptr;
 
-# define PAGESIZE 4096
-# define TINY_MIN_ALLOC 16
-# define TINY_MAX_ALLOC 64
-# define TINY_TAB 1024
-# define SMALL_MIN_ALLOC 128
-# define SMALL_MAX_ALLOC 4096
-# define SMALL_TAB 4096
-# define LARGE_MIN_ALLOC 8192
-# define LARGE_TAB 254
-# define LARGE_PREALLOC 128
-
-# define NOT_USED 0
-
-#endif
+	i = 0;
+	ptr = NULL;
+	while (i < LARGE_PREALLOC)
+	{
+		ptr = (*header)->(mem + i * sizeof(void *));
+		if (ptr != NULL)
+			munmap(ptr, 2 * PAGESIZE);
+		i++;
+	}
+	munmap(*header, PAGESIZE);
+	*header = NULL;
+	return (-1);
+}

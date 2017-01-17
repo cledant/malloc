@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   malloc_new_tiny.c                                  :+:      :+:    :+:   */
+/*   malloc_new_large.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/17 12:01:09 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 13:27:06 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/17 13:20:25 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/17 13:25:04 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-t_tiny		*malloc_new_tiny(void)
+t_large		*malloc_new_large(void)
 {
-	t_tiny		*header;
+	t_large		*header;
 	void		*memory;
 
-	if ((header = (t_tiny *)mmap(NULL, PAGESIZE, PROT_READ | PROT_WRITE,
+	if ((header = (t_large *)mmap(NULL, PAGESIZE, PROT_READ | PROT_WRITE,
 			MAP_ANON | MAP_PRIVATE, -1, 0)) == MAP_FAILED)
 		return (NULL);
-	if ((memory = mmap(NULL, 4 * PAGESIZE, PROT_READ | PROT_WRITE,
-			MAP_ANON | MAP_PRIVATE, -1, 0)) == MAP_FAILED)
-	{
-		munmap(header, PAGESIZE);
-		return (NULL);
-	}
 	header->prev = NULL;
 	header->next = NULL;
-	header->max_alloc = TINY_TAB;
+	header->max_alloc = LARGE_TAB;
 	header->used_alloc = 0;
-	ft_bzero(header->state, sizeof(unsigned short int) * TINY_TAB);
-	ft_bzero(header->index, sizeof(char) * TINY_TAB);
-	header->mem = memory;
+	ft_bzero(header->size, sizeof(size_t) * LARGE_TAB);
+	ft_bzero(header->memory, sizeof(void *) * LARGE_TAB);
 	return (header);
 }

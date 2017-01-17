@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 12:36:21 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 12:47:06 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/17 13:25:13 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_small		*malloc_new_small(void)
 	void		*memory;
 
 	if ((header = (t_small *)mmap(NULL, 4 * PAGESIZE, PROT_READ | PROT_WRITE,
-			MAP_ANON | MAP_PRIVATE, -1, 0)) = MAP_FAILED)
+			MAP_ANON | MAP_PRIVATE, -1, 0)) == MAP_FAILED)
 		return (NULL);
 	if ((memory = mmap(NULL, 128 * PAGESIZE, PROT_READ | PROT_WRITE,
 			MAP_ANON | MAP_PRIVATE, -1, 0)) == MAP_FAILED)

@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 13:06:45 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 12:57:05 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/17 14:00:00 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ t_tiny			*malloc_get_tiny(void); //ok
 t_tiny			*malloc_new_tiny(void); //ok
 t_small			*malloc_get_small(void); //ok
 t_small			*malloc_new_small(void); //ok
-t_large			*malloc_get_large(void);
-t_large			*malloc_new_large(void);
+t_large			*malloc_get_large(void); //ok
+t_large			*malloc_new_large(void); //ok
+int				malloc_prealloc_large(t_large **header); //ok
+int				malloc_clean_prealloc_large(t_large **header); //ok
 
 #endif
