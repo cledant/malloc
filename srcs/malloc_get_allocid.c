@@ -6,19 +6,19 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 16:22:39 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 16:44:37 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/17 19:15:14 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-unsigned short int	malloc_get_allocid(const unsigned short int *state,
-						const size_t nb_alloc, const t_type type)
+short int	malloc_get_allocid(const short int *state, const size_t nb_alloc,
+				const t_type type)
 {
-	size_t				i;
-	unsigned short int	id_ok;
-	size_t				free;
-	size_t				max;
+	size_t		i;
+	short int	id_ok;
+	size_t		free;
+	size_t		max;
 
 	i = 0;
 	id_ok = INVALID_ALLOC;

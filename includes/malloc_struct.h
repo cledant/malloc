@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 14:39:12 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 16:18:26 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/17 19:08:01 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct			s_tiny
 	struct s_tiny		*next;
 	int					max_alloc;
 	int					used_alloc;
-	unsigned short int	state[TINY_TAB];
+	short int			state[TINY_TAB];
 	char				index[TINY_TAB];
 	void				*mem;
 }						t_tiny;
@@ -30,7 +30,7 @@ typedef struct			s_small
 	struct s_small		*next;
 	int					max_alloc;
 	int					used_alloc;
-	unsigned short int	state[SMALL_TAB];
+	short int			state[SMALL_TAB];
 	char				index[SMALL_TAB];
 	void				*mem;
 }						t_small;

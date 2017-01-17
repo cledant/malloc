@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 14:35:00 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 16:18:41 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/17 19:06:57 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	*malloc_tiny(const size_t size)
 {
-	t_large					*header;
-	size_t					nb_alloc;
-	unsigned short int		user_id;
-	unsigned short int		alloc_id;
-	void					*ptr;
+	t_large			*header;
+	size_t			nb_alloc;
+	short int		user_id;
+	short int		alloc_id;
+	void			*ptr;
 
 	user_id = INVALID_USER;
 	alloc_id = INVALID_ALLOC;
@@ -26,11 +26,11 @@ void	*malloc_tiny(const size_t size)
 		return (NULL);
 	if ((nb_alloc = malloc_get_number_alloc(size, TINY_MIN_ALLOC, TINY)) == 0)
 		return (NULL);
-	if ((user = malloc_get_userid(header->index, TINY)) == INVALID_USER)
+	if ((user_id = malloc_get_userid(header->index, TINY)) == INVALID_USER)
 		return (NULL);
 	if ((alloc_id = malloc_get_allocid(header->state, nb_alloc, TINY))
 			== INVALID_ALLOC)
 		return (NULL);
-	ptr = malloc_allocate_tiny(header, nb_alloc, user, alloc_id);
+	ptr = malloc_allocate_tiny(header, nb_alloc, user_id, alloc_id);
 	return (ptr);
 }

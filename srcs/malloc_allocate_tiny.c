@@ -1,36 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   malloc_get_userid.c                                :+:      :+:    :+:   */
+/*   malloc_allocate_tiny.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/17 15:59:54 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 19:11:28 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/17 17:49:01 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/17 19:16:50 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-short int		malloc_get_userid(const char *index, const t_type type)
+void	*malloc_allocate_tiny(t_tiny *header, const size_t size,
+			const short int user_id, const short int alloc_id)
 {
-	short int	i;
-	short int	max;
-
-	i = 0;
-	if (type == LARGE)
-		return (INVALID_USER);
-	else if (type == TINY)
-		max = TINY_TAB;
-	else
-		max = SMALL_TAB;
-	while (i < max)
-	{
-		if (index[i] == NOT_USED)
-			break ;
-		i++;
-	}
-	if (i == max)
-		return (INVALID_USER);
-	return (i + 1);
+	return (NULL);
 }

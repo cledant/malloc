@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 12:36:21 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 13:25:13 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/17 19:07:44 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_small		*malloc_new_small(void)
 	header->next = NULL;
 	header->max_alloc = SMALL_TAB;
 	header->used_alloc = 0;
-	ft_bzero(header->state, sizeof(unsigned short int) * SMALL_TAB);
+	ft_bzero(header->state, sizeof(short int) * SMALL_TAB);
 	ft_bzero(header->index, sizeof(char) * SMALL_TAB);
 	header->mem = memory;
 	return (header);
