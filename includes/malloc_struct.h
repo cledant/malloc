@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 14:39:12 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 13:41:59 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/17 16:18:26 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,10 @@ typedef struct			s_large
 	size_t				size[LARGE_TAB];
 	void				*mem;
 }						t_large;
+
+typedef enum			e_type
+{
+	TINY, SMALL, LARGE
+}						t_type;
 
 #endif

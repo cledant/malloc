@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 13:00:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 13:29:56 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/17 16:18:30 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,8 @@
 # define LARGE_PREALLOC 128
 
 # define NOT_USED 0
+# define USED 1
+# define INVALID_USER 65535
+# define INVALID_ALLOC 65535
 
 #endif
