@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 13:10:22 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 11:25:51 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/17 11:30:01 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void	*malloc(size_t size)
 		if (malloc_init(&init) != 0)
 			return (NULL);
 	}
-	if (size <= TINY_SIZE)
+	if (size <= TINY_MAX_ALLOC)
 		return (malloc_tiny(size));
-	else if (size > TINY_SIZE && size <= SMALL_SIZE)
+	else if (size > TINY_MAX_ALLOC && size <= SMALL_MAX_ALLOC)
 		return (malloc_small(size));
-	else if (size > SMALL_SIZE)
+	else if (size > SMALL_MAX_ALLOC)
 		return (malloc_large(size));
 	return (NULL);
 }

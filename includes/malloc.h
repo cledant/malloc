@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 13:00:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 11:23:20 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/17 12:30:18 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@
 # define SMALL_TAB 4096
 # define LARGE_MIN_ALLOC 8192
 # define LARGE_TAB 254
+
+# define NOT_USED 0
 
 #endif
