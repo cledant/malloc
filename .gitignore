@@ -22,3 +22,8 @@ Thumbs.db
 #######################
 test0
 test1
+a.out
+
+# Debug #
+#########
+*.dSYM

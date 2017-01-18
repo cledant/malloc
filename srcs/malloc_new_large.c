@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 13:20:25 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/18 17:10:34 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/18 19:39:13 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_large		*malloc_new_large(void)
 //	write(1, "bbb2-", 5);
 	ft_bzero(header->size, sizeof(size_t) * LARGE_TAB);
 //	write(1, "bbb3-", 5);
-//	ft_bzero(*(header->mem), sizeof(void *) * LARGE_TAB); verif plus tard
+	ft_bzero(header->mem, sizeof(size_t) * LARGE_TAB);
 //	write(1, "bbb4-", 5);
 	return (header);
 }

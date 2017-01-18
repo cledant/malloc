@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 14:39:12 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/18 15:11:42 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/18 19:38:26 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct			s_large
 	unsigned char		max_alloc;
 	unsigned char		used_alloc;
 	size_t				size[LARGE_TAB];
-	void				**mem;
+	size_t				mem[LARGE_TAB];
 }						t_large;
 
 typedef enum			e_type
