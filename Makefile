@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2017/01/18 15:54:56 by cledant          ###   ########.fr        #
+#    Updated: 2017/01/18 17:16:20 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRCS_NAME = malloc.c malloc_init.c malloc_getpagesize.c malloc_get_tiny.c \
 			malloc_allocate_tiny.c malloc_small.c malloc_get_available_small.c \
 			malloc_add_new_small.c malloc_allocate_small.c malloc_large.c \
 			malloc_add_new_large.c malloc_get_available_large.c \
-			malloc_allocate_large.c
+			malloc_allocate_large.c free.c
 
 SRCS_PATH = ./srcs
 
