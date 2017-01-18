@@ -6,13 +6,13 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2016/08/21 14:49:46 by cledant          ###   ########.fr        #
+#    Updated: 2017/01/18 14:33:35 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -O2 -fsigned-char
+CFLAGS = -Wall -Werror -Wextra -O2 -fsigned-char -fPIC
 
 OBJ_DIR_NAME = obj
 
