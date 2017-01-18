@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   malloc_get_available_tiny.c                        :+:      :+:    :+:   */
+/*   malloc_get_available_large.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/17 16:47:22 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/18 11:33:25 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/18 11:39:19 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/18 11:51:38 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-t_tiny		*malloc_get_available_tiny(const size_t nb_alloc,
-				short int *alloc_id)
+t_large			*malloc_get_available_large(void)
 {
-	t_tiny	*header;
+	t_large		*header;
 
-	if ((header = malloc_get_tiny()) == NULL)
+	if ((header = malloc_get_large()) == NULL)
 		return (NULL);
 	while (header != NULL)
 	{
-		if ((header->used_alloc + nb_alloc <= header->max_alloc
-				&& (*alloc_id = malloc_get_allocid(header->state,
-				nb_alloc, TINY)) != INVALID_ALLOC) || header->next == NULL)
+		if (header->used_alloc + 1 <= header->max_alloc
+				|| header->next == NULL)
 			break ;
 		header = header->next;
 	}
-	if (*alloc_id == INVALID_ALLOC && header != NULL)
+	if (header->used_alloc + 1 > header->max_alloc && header->next == NULL)
 	{
-		if (malloc_add_new_tiny(header) != 0)
+		if (malloc_add_new_large(header) != 0)
 			return (NULL);
 		header = header->next;
-		if ((*alloc_id = malloc_get_allocid(header->state, nb_alloc, TINY))
-				== INVALID_ALLOC)
-			return (NULL);
 	}
 	return (header);
 }

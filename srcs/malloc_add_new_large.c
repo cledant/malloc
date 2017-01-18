@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   malloc_large.c                                     :+:      :+:    :+:   */
+/*   malloc_add_new_large.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/17 19:57:27 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/18 11:57:23 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/18 11:52:13 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/18 11:53:05 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-void	*malloc_large(const size_t size)
+int		malloc_add_new_large(t_large *header)
 {
-	t_large			*header;
-	size_t			nb_alloc;
+	t_large		*new;
 
-	alloc_id = INVALID_LARGE_ALLOC;
-	if ((nb_alloc = malloc_get_number_alloc(size, PAGESIZE, LARGE)) == 0)
-		return (NULL);
-	if ((header = malloc_get_available_large()) == NULL)
-		return (NULL);
-	ptr = malloc_allocate_large(header, nb_alloc);
-	return (ptr);
+	if ((new = malloc_new_large()) == NULL)
+		return (-1);
+	header->next = new;
+	new->previous = header;
+	return (0);
 }

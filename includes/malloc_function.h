@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 13:06:45 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/18 10:51:50 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/18 12:33:12 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,17 @@ t_tiny				*malloc_get_available_tiny(const size_t size,
 int					malloc_add_new_tiny(t_tiny *header); //ok
 void				*malloc_allocate_tiny(t_tiny *header, const size_t nb_alloc,
 						const short int user_id, const short int alloc_id); //ok
-void				*malloc_small(const size_t size);
+void				*malloc_small(const size_t size); //ok
 t_small				*malloc_get_available_small(const size_t nb_tiny,
 						short int *alloc_id); //ok
 int					malloc_add_new_small(t_small *header); //ok
 void				*malloc_allocate_small(t_small *header,
 						const size_t nb_alloc, const short int user_id,
 						const short int alloc_id); //ok
-inline int			malloc_has_nb_of_contiguous_alloc(size_t nb_alloc);
-void				*malloc_large(const size_t size);
+void				*malloc_large(const size_t size); //ok
+int					malloc_add_new_large(t_large *large); //ok
+t_large				*malloc_get_available_large(void); //ok
+void				*malloc_allocate_large(t_large *header,
+						const size_t nb_alloc); //ok
 
 #endif
