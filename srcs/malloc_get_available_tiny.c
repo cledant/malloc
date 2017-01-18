@@ -6,25 +6,36 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 16:47:22 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 17:02:34 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/18 10:56:45 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-t_tiny		*malloc_get_available_tiny(void)
+t_tiny		*malloc_get_available_tiny(const size_t nb_alloc,
+				short int *alloc_id)
 {
 	t_tiny	*header;
+	int		contiguous;
 
 	if ((header = malloc_get_tiny()) == NULL)
 		return (NULL);
-	while (header->used_alloc >= header->max_alloc && header->next != NULL)
-		header = header->next;
-	if (header->used_alloc >= header->max_alloc)
+	while (header != NULL)
 	{
-		if (malloc_add_new_tiny(tiny) != 0)
+		if ((header->used_alloc + nb_alloc <= header->max_alloc
+				&& (*alloc_id = malloc_get_allocid(header->state,
+				nb_alloc, TINY)) != INVALID_ALLOC) || header->next == NULL)
+			break ;
+		header = header->next;
+	}
+	if (*alloc_id == INVALID_ALLOC && header != NULL)
+	{
+		if (malloc_add_new_tiny(header) != 0)
 			return (NULL);
 		header = header->next;
+		if ((*alloc_id = malloc_get_allocid(header->state, nb_alloc, TINY))
+				== INVALID_ALLOC)
+			return (NULL);
 	}
 	return (header);
 }

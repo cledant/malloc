@@ -5,26 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/17 19:40:08 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 19:41:12 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/18 10:41:33 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/18 10:49:40 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-t_small		*malloc_get_available_small(void)
+t_small		*malloc_get_available_small(const size_t nb_alloc,
+				short int *alloc_id)
 {
 	t_small		*header;
 
 	if ((header = malloc_get_small()) == NULL)
 		return (NULL);
-	while (header->used_alloc >= header->max_alloc && header->next != NULL)
-		header = header->next;
-	if (header->used_alloc >= header->max_alloc)
+	while (header != NULL)
 	{
-		if (malloc_add_new_small(tiny) != 0)
+		if ((header->used_alloc + nb_alloc <= header->max_alloc
+				&& (*alloc_id = malloc_get_allocid(header->state,
+				nb_alloc, SMALL)) != INVALID_ALLOC) || header->next == NULL)
+			break ;
+		header = header->next;
+	}
+	if (*alloc_id == INVALID_ALLOC && header != NULL)
+	{
+		if (malloc_add_new_small(header) != 0)
 			return (NULL);
 		header = header->next;
+		if ((*alloc_id = malloc_get_allocid(header->state, nb_alloc, SMALL))
+				== INVALID_ALLOC)
+			return (NULL);
 	}
 	return (header);
 }

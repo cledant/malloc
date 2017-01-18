@@ -6,13 +6,13 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 19:45:08 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 19:45:45 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/18 10:43:53 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-void	*malloc_allocate_tiny(t_small *header, const size_t nb_alloc,
+void	*malloc_allocate_small(t_small *header, const size_t nb_alloc,
 			const short int user_id, const short int alloc_id)
 {
 	short int	i;
@@ -26,5 +26,6 @@ void	*malloc_allocate_tiny(t_small *header, const size_t nb_alloc,
 		i++;
 	}
 	ptr = header->mem + alloc_id * SMALL_MIN_ALLOC;
+	header->used_alloc += nb_alloc;
 	return (ptr);
 }

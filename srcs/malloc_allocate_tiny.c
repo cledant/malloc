@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 17:49:01 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 19:28:33 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/18 10:09:59 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ void	*malloc_allocate_tiny(t_tiny *header, const size_t nb_alloc,
 		i++;
 	}
 	ptr = header->mem + alloc_id * TINY_MIN_ALLOC;
+	header->used_alloc += nb_alloc;
 	return (ptr);
 }

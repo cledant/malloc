@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 14:35:00 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/17 19:36:44 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/18 10:40:18 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,11 @@ void	*malloc_tiny(const size_t size)
 
 	user_id = INVALID_USER;
 	alloc_id = INVALID_ALLOC;
-	if ((header = malloc_get_available_tiny()) == NULL)
-		return (NULL);
 	if ((nb_alloc = malloc_get_number_alloc(size, TINY_MIN_ALLOC, TINY)) == 0)
 		return (NULL);
-	if ((user_id = malloc_get_userid(header->index, TINY)) == INVALID_USER)
+	if ((header = malloc_get_available_tiny(nb_alloc, &alloc_id)) == NULL)
 		return (NULL);
-	if ((alloc_id = malloc_get_allocid(header->state, nb_alloc, TINY))
-			== INVALID_ALLOC)
+	if ((user_id = malloc_get_userid(header->index, TINY)) == INVALID_USER)
 		return (NULL);
 	ptr = malloc_allocate_tiny(header, nb_alloc, user_id, alloc_id);
 	return (ptr);
