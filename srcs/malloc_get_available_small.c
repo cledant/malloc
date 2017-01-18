@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 10:41:33 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/18 10:49:40 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/18 15:18:46 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_small		*malloc_get_available_small(const size_t nb_alloc,
 		return (NULL);
 	while (header != NULL)
 	{
-		if ((header->used_alloc + nb_alloc <= header->max_alloc
+		if ((header->used_alloc + nb_alloc <= (size_t)header->max_alloc
 				&& (*alloc_id = malloc_get_allocid(header->state,
 				nb_alloc, SMALL)) != INVALID_ALLOC) || header->next == NULL)
 			break ;

@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 19:57:27 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/18 11:57:23 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/18 15:20:15 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	*malloc_large(const size_t size)
 {
 	t_large			*header;
+	void			*ptr;
 	size_t			nb_alloc;
 
-	alloc_id = INVALID_LARGE_ALLOC;
 	if ((nb_alloc = malloc_get_number_alloc(size, PAGESIZE, LARGE)) == 0)
 		return (NULL);
 	if ((header = malloc_get_available_large()) == NULL)

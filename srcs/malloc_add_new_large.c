@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 11:52:13 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/18 11:53:05 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/18 15:17:34 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ int		malloc_add_new_large(t_large *header)
 	if ((new = malloc_new_large()) == NULL)
 		return (-1);
 	header->next = new;
-	new->previous = header;
+	new->prev = header;
 	return (0);
 }

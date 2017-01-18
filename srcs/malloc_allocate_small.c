@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 19:45:08 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/18 10:43:53 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/18 15:19:10 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*malloc_allocate_small(t_small *header, const size_t nb_alloc,
 			const short int user_id, const short int alloc_id)
 {
-	short int	i;
+	size_t		i;
 	void		*ptr;
 
 	i = 0;

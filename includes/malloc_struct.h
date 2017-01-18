@@ -6,12 +6,16 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 14:39:12 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/18 13:18:32 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/18 15:11:42 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MALLOC_STRUCT_H
 # define MALLOC_STRUCT_H
+
+# define TINY_TAB 1024
+# define SMALL_TAB 4096
+# define LARGE_TAB 254
 
 typedef struct			s_tiny
 {

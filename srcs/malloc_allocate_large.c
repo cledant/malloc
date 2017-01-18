@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 11:58:44 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/18 13:25:35 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/18 15:24:11 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	*malloc_allocate_large(t_large *header, const size_t nb_alloc)
 	if ((ptr_mem = mmap(NULL, nb_alloc * PAGESIZE, PROT_READ | PROT_WRITE,
 			MAP_ANON | MAP_PRIVATE, -1, 0)) == MAP_FAILED)
 		return (NULL);
-	(*(header->mem))[i] = ptr_mem;
+	(header->mem)[i] = ptr_mem;
 	(header->size)[i] = nb_alloc * PAGESIZE;
 	return (ptr_mem);
 }

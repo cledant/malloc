@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 13:06:45 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/18 12:33:12 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/18 15:13:41 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include "malloc_struct.h"
 
-void				malloc_init(char *init); //ok
-inline int			malloc_getpagesize(void); //ok
+int					malloc_init(char *init); //ok
+int					malloc_getpagesize(void); //ok
 t_tiny				*malloc_get_tiny(void); //ok
 t_tiny				*malloc_new_tiny(void); //ok
 t_small				*malloc_get_small(void); //ok
