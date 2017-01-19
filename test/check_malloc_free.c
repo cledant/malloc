@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   check_malloc_free.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/18 17:13:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 10:47:14 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/19 10:34:38 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/19 10:39:48 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "malloc.h"
+#include <stdlib.h>
+#include <stdio.h>
 
-void	free(void *ptr)
+int		main(void)
 {
-	size_t	addr;
+	char	*toto;
 
-	if (ptr == NULL)
-		return ;
-	addr = (size_t)ptr;
-	if (free_tiny(addr) == FREE_OK)
-		return ;
-	else if (free_small(addr) == FREE_OK)
-		return ;
-	else if (free_large(addr) == FREE_OK)
-		return ;
+	toto = (char *)malloc(32);
+	printf("OK 1\n");
+	free(toto + 10);
+	printf("OK 2\n");
+	return (0);
 }

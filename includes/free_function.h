@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   free_function.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/18 17:13:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 10:47:14 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/19 10:48:27 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/19 12:42:50 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "malloc.h"
+#ifndef FREE_FUNCTION_H
+# define FREE_FUNCTION_H
 
-void	free(void *ptr)
-{
-	size_t	addr;
+# include "malloc_struct.h"
 
-	if (ptr == NULL)
-		return ;
-	addr = (size_t)ptr;
-	if (free_tiny(addr) == FREE_OK)
-		return ;
-	else if (free_small(addr) == FREE_OK)
-		return ;
-	else if (free_large(addr) == FREE_OK)
-		return ;
-}
+int		free_tiny(const size_t addr); //ok
+t_tiny	*free_seek_header_for_addr_tiny(const size_t addr);
+int		free_is_valid_alloc_tiny(t_tiny *header, const size_t addr,
+			short int *user_id, short int *alloc_id);
+
+#endif

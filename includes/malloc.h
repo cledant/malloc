@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 13:00:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/18 15:11:52 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/19 11:54:06 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <sys/mman.h>
 # include "libft.h"
 # include "malloc_function.h"
+# include "free_function.h"
 
 # define PAGESIZE 4096
 # define TINY_MIN_ALLOC 16
@@ -30,5 +31,8 @@
 # define INVALID_USER -1
 # define INVALID_ALLOC -1
 # define INVALID_LARGE_ALLOC 255
+
+# define FREE_OK 1
+# define FREE_NOP 0
 
 #endif

@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   free_is_valid_alloc_tiny.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/18 17:13:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 10:47:14 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/19 12:42:07 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/19 12:43:26 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-void	free(void *ptr)
+int		free_is_valid_alloc_tiny(t_tiny *header, const size_t addr,
+			short int *user_id, short int *alloc_id)
 {
-	size_t	addr;
-
-	if (ptr == NULL)
-		return ;
-	addr = (size_t)ptr;
-	if (free_tiny(addr) == FREE_OK)
-		return ;
-	else if (free_small(addr) == FREE_OK)
-		return ;
-	else if (free_large(addr) == FREE_OK)
-		return ;
+	
 }
