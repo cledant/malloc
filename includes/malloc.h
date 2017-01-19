@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 13:00:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 11:54:06 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/19 14:53:32 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@
 # define PAGESIZE 4096
 # define TINY_MIN_ALLOC 16
 # define TINY_MAX_ALLOC 64
+# define TINY_MAX_NB_PER_ALLOC 4
 # define SMALL_MIN_ALLOC 128
 # define SMALL_MAX_ALLOC 4096
+# define SMALL_MAX_NB_PER_ALLOC 32
 # define LARGE_MIN_ALLOC 8192
 # define LARGE_PREALLOC 128
 

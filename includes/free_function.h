@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 10:48:27 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 13:48:15 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/19 15:21:51 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ int		free_is_valid_alloc_tiny(const t_tiny *header, const size_t addr,
 			short int *user_id, short int *alloc_id); //ok
 int		free_seek_nb_alloc_tiny(const t_tiny *header, const short int user_id,
 			const short int alloc_id, size_t *nb_alloc);
+int		free_deallocate_tiny(t_tiny *header, const short int user_id,
+			const short int alloc_id, const size_t nb_alloc);
 
 #endif
