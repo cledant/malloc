@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   free_seek_header_for_addr_small.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/18 17:13:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 18:18:46 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/19 17:43:28 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/19 17:45:31 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-void	free(void *ptr)
+t_small		*free_seek_header_for_addr_small(const size_t addr)
 {
-	size_t	addr;
+	t_small		*header;
+	size_t		addr_mem;
 
-	if (ptr == NULL)
-		return ;
-	addr = (size_t)ptr;
-	if (free_tiny(addr) == FREE_OK)
-		return ;
-	else if (free_small(addr) == FREE_OK)
-		return ;
-//	else if (free_large(addr) == FREE_OK)
-//		return ;
+	addr_mem = 0;
+	if ((header = malloc_get_small()) == NULL)
+		return (NULL);
+	while (header != NULL)
+	{
+		addr_mem = (size_t)header->mem;
+		if (addr >= addr_mem && addr < (addr_mem + 128 * PAGESIZE))
+			return (header);
+		header = header->next;
+	}
+	return (header);
 }

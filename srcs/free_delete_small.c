@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   free_delete_small.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/18 17:13:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 18:18:46 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/19 18:19:26 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/19 18:20:48 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-void	free(void *ptr)
+void	free_delete_small(t_small *header)
 {
-	size_t	addr;
+	t_small		*cur_prev;
+	t_small		*cur_next;
 
-	if (ptr == NULL)
-		return ;
-	addr = (size_t)ptr;
-	if (free_tiny(addr) == FREE_OK)
-		return ;
-	else if (free_small(addr) == FREE_OK)
-		return ;
-//	else if (free_large(addr) == FREE_OK)
-//		return ;
+	cur_prev = header->prev;
+	cur_next = header->next;
+	if (cur_prev != NULL)
+		cur_prev->next = cur_next;
+	if (cur_next != NULL)
+		cur_next->prev = cur_prev;
+	munmap(header->mem, 128 * PAGESIZE);
+	munmap(header, 4 * PAGESIZE);
 }

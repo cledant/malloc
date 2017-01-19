@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   free_deallocate_small.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/18 17:13:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 18:18:46 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/19 17:51:46 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/19 17:53:16 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-void	free(void *ptr)
+int		free_deallocate_small(t_small *header, const short int user_id,
+			const short int alloc_id, const size_t nb_alloc)
 {
-	size_t	addr;
+	size_t	i;
+	size_t	j;
 
-	if (ptr == NULL)
-		return ;
-	addr = (size_t)ptr;
-	if (free_tiny(addr) == FREE_OK)
-		return ;
-	else if (free_small(addr) == FREE_OK)
-		return ;
-//	else if (free_large(addr) == FREE_OK)
-//		return ;
+	i = alloc_id;
+	j = 0;
+	if (header->used_alloc < nb_alloc)
+		return (FREE_NOP);
+	header->used_alloc -= nb_alloc;
+	(header->index)[user_id - 1] = NOT_USED;
+	while (i < TINY_TAB && j < nb_alloc)
+	{
+		(header->state)[i] = NOT_USED;
+		i++;
+		j++;
+	}
+	return (FREE_NOP);
 }

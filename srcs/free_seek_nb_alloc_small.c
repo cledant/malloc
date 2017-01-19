@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   free_seek_nb_alloc_small.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/18 17:13:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 18:18:46 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/19 17:50:16 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/19 17:50:54 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-void	free(void *ptr)
+int		free_seek_nb_alloc_small(const t_small *header,
+			const short int user_id, const short int alloc_id,
+			size_t *nb_alloc)
 {
-	size_t	addr;
+	size_t	i;
 
-	if (ptr == NULL)
-		return ;
-	addr = (size_t)ptr;
-	if (free_tiny(addr) == FREE_OK)
-		return ;
-	else if (free_small(addr) == FREE_OK)
-		return ;
-//	else if (free_large(addr) == FREE_OK)
-//		return ;
+	i = alloc_id;
+	while (i < SMALL_TAB && (header->state)[i] == user_id)
+	{
+		(*nb_alloc)++;
+		i++;
+	}
+	if (*nb_alloc > SMALL_MAX_NB_PER_ALLOC)
+		return (FREE_NOP);
+	return (FREE_OK);
 }
