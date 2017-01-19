@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 15:22:25 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 15:34:25 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/19 18:30:16 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		free_deallocate_tiny(t_tiny *header, const short int user_id,
 
 	i = alloc_id;
 	j = 0;
-	if (header->used_alloc < nb_alloc)
+	if ((size_t)header->used_alloc < nb_alloc)
 		return (FREE_NOP);
 	header->used_alloc -= nb_alloc;
 	(header->index)[user_id - 1] = NOT_USED;

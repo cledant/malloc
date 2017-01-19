@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 17:39:03 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 17:42:27 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/19 18:30:34 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		free_small(const size_t addr)
 	short int		alloc_id;
 	size_t			nb_alloc;
 
-	header == NULL;
+	header = NULL;
 	user_id = INVALID_USER;
 	alloc_id = INVALID_ALLOC;
 	nb_alloc = 0;
