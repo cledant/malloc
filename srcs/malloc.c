@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 13:10:22 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/18 17:12:58 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/19 09:50:32 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 void	*malloc(size_t size)
 {
 	static char	init = 0;
+	size_t		max;
 
+	max = 0;
+	max--;
 //	write(1, "toto1-", 6);
 	if (init == 0)
 	{
@@ -36,7 +39,7 @@ void	*malloc(size_t size)
 //		write(1, "toto5-", 6);
 		return (malloc_small(size));
 	}
-	else if (size > SMALL_MAX_ALLOC)
+	else if (size > SMALL_MAX_ALLOC && size <= (max - PAGESIZE - 1))
 	{
 //		write(1, "toto6-", 6);
 		return (malloc_large(size));
