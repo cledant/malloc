@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_deallocate_tiny.c                             :+:      :+:    :+:   */
+/*   free_check_to_delete_header_tiny.c                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/19 15:22:25 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 15:34:25 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/19 15:47:34 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/19 15:48:08 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-int		free_deallocate_tiny(t_tiny *header, const short int user_id,
-			const short int alloc_id, const size_t nb_alloc)
+void	free_check_to_delete_header_tiny(t_tiny *header)
 {
-	size_t	i;
-	size_t	j;
 
-	i = alloc_id;
-	j = 0;
-	if (header->used_alloc < nb_alloc)
-		return (FREE_NOP);
-	header->used_alloc -= nb_alloc;
-	(header->index)[user_id - 1] = NOT_USED;
-	while (i < TINY_TAB && j < nb_alloc)
-	{
-		(header->state)[i] = NOT_USED;
-		i++;
-		j++;
-	}
-	return (FREE_NOP);
 }

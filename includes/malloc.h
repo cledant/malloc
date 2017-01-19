@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 13:00:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 14:53:32 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/19 15:48:13 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@
 
 # define FREE_OK 1
 # define FREE_NOP 0
+# define COMPRESS_AFTER_X_FREE 32
 
 #endif
