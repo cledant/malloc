@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_large.c                                       :+:      :+:    :+:   */
+/*   test1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/19 18:54:35 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 21:16:55 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/18 16:24:39 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/19 21:04:04 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "malloc.h"
+#include <stdlib.h>
 
-int		free_large(const size_t addr)
+int		main(void)
 {
-	t_large		*header;
+	int		i;
+	char	*addr;
 
-	if ((header = malloc_get_large()) == NULL)
-		return (FREE_NOP);
-	while (header != NULL)
+	i = 0;
+	while (i < 1024)
 	{
-		if (free_seek_and_deallocate_large(addr, header) == FREE_OK)
-			return (FREE_OK);
-		header = header->next;
+		addr = (char *)malloc(8000);
+		addr[0] = 42;
+		free(addr);
+		i++;
 	}
-	return (FREE_NOP);
+	return (0);
 }

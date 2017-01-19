@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:24:39 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/18 19:50:54 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/19 21:08:21 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ int		main(void)
 	i = 0;
 	while (i < 1024)
 	{
-//		write(1, "toto\n", 5);
-//		printf("%d\n", i);
 		addr = (char *)malloc(8000);
 		addr[0] = 42;
 		i++;
