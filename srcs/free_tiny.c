@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 11:23:04 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 15:47:04 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/19 15:52:19 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		free_tiny(const size_t addr)
 		return (FREE_NOP);
 	if ((free_deallocate_tiny(header, user_id, alloc_id, nb_alloc)) == FREE_NOP)
 		return (FREE_NOP);
-	free_check_to_delete_header_tiny(header);
+	if (header->used_alloc == 0 && header->prev != NULL)
+		free_check_to_delete_header_tiny(header);
 	return (FREE_OK);
 }

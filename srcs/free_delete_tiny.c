@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_check_to_delete_header_tiny.c                 :+:      :+:    :+:   */
+/*   free_delete_tiny.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/19 15:47:34 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 16:17:53 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/19 16:18:58 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/19 16:48:17 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-inline void		free_check_to_delete_header_tiny(t_tiny *header)
+void	free_delete_tiny(t_tiny *header)
 {
-	if (header->next == NULL && header->prev->used_alloc
-			<= TINY_MIN_USED_IN_ADJ)
-		free_delete_tiny(header);
-	else if (header->prev->used_alloc <= TINY_MIN_USED_IN_ADJ
-			|| header->next->used_alloc <= TINY_MIN_USED_IN_ADJ)
-		free_delete_tiny(header);
+	t_tiny	*cur_prev;
+	t_tiny	*cur_next;
+
+	cur_prev = header->prev;
+	cur_next = header->next;
+	if (cur_prev != NULL)
+		cur_prev->next = cur_next;
+	if (cur_next != NULL)
+		cur_next->prev = cur_prev;
+	munmap(header->mem, 4 * PAGESIZE);
+	munmap(header, PAGESIZE);
 }
