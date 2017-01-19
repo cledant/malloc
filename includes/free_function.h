@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 10:48:27 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 18:20:54 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/19 19:54:25 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,9 @@ int		free_deallocate_small(t_small *header, const short int user_id,
 			const short int alloc_id, const size_t nb_alloc); //ok
 void	free_check_to_delete_header_small(t_small *header); //ok
 void	free_delete_small(t_small *header); //ok
+int		free_large(const size_t addr); //ok
+int		free_seek_and_deallocate_large(const size_t addr, t_large *header); //ok
+void	free_check_to_delete_header_large(t_large *header); //ok
+void	free_delete_large(t_large *header); //ok
 
 #endif

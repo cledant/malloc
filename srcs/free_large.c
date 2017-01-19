@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_check_to_delete_header_small.c                :+:      :+:    :+:   */
+/*   free_large.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/19 17:53:55 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 19:49:36 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/19 18:54:35 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/19 19:16:51 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-inline void		free_check_to_delete_header_small(t_small *header)
+int		free_large(const size_t size)
 {
-	if (header->next == NULL && header->prev->used_alloc
-			<= SMALL_MIN_USED_IN_ADJ)
-		free_delete_small(header);
-	else if (header->prev->used_alloc <= SMALL_MIN_USED_IN_ADJ
-			|| (header->next != NULL && header->next->used_alloc
-				<= SMALL_MIN_USED_IN_ADJ))
-		free_delete_small(header);
+	t_large		*header;
+
+	header == NULL;
+	if ((header == malloc_get_large()) == NULL)
+		return (FREE_NOP);
+	while (header != NULL)
+	{
+		if (free_seek_and_disallocate_large(addr, header) == FREE_OK)
+			return (FREE_OK);
+		header = header->next;
+	}
+	return (FREE_NOP);
 }

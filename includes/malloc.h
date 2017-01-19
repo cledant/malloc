@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 13:00:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 17:59:03 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/19 19:41:26 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define SMALL_MIN_USED_IN_ADJ 3277
 # define LARGE_MIN_ALLOC 8192
 # define LARGE_PREALLOC 128
+# define LARGE_MIN_USED_IN_ADJ 204
 
 # define NOT_USED 0
 # define USED 1

@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 17:13:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 18:18:46 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/19 18:45:03 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	free(void *ptr)
 		return ;
 	else if (free_small(addr) == FREE_OK)
 		return ;
-//	else if (free_large(addr) == FREE_OK)
-//		return ;
+	else if (free_large(addr) == FREE_OK)
+		return ;
 }
