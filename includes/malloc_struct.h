@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 14:39:12 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 10:31:55 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/20 10:52:37 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,13 @@ typedef enum			e_type
 {
 	TINY, SMALL, LARGE
 }						t_type;
+
+typedef struct			s_allocid
+{
+	size_t		i;
+	short int	id_ok;
+	size_t		free;
+	size_t		max;
+}						t_allocid;
 
 #endif
