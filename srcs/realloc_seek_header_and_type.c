@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   realloc_function.h                                 :+:      :+:    :+:   */
+/*   realloc_seek_header_and_type.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/20 10:07:52 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/20 13:39:37 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/20 11:37:27 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/20 12:15:09 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef REALLOC_FUNCTION_H
-# define REALLOC_FUNCTION_H
-
-# include "malloc_struct.h"
+#include "malloc.h"
 
 int		realloc_seek_header_and_type(void **header, t_type *type,
-			const void *ptr); //ok
-t_large	realloc_seek_header_for_addr_large(const size_t addr); //ok
-void	*realloc_tiny(t_tiny *header, const void *ptr, const size_t new_size); //ok
-void	*realloc_new_ptr(void *ptr, const size_t size); //ok
-int		realloc_change_size_tiny(t_tiny *header, const short int alloc_id,
-			const size_t cur_nb_alloc, const size_t new_nb_alloc);
-
-#endif
+			const void *ptr)
+{
+	if ((*header = free_seek_header_for_addr_tiny((size_t)ptr)) != NULL)
+	{
+		*type = TINY;
+		return (REALLOC_VALID_PTR);
+	}
+	else if ((*header = free_seek_header_for_addr_small((size_t)ptr)) != NULL)
+	{
+		*type = SMALL;
+		return (REALLOC_VALID_PTR);
+	}
+	else if ((*header = realloc_seek_header_for_addr_large((size_t)ptr))
+				!= NULL)
+	{
+		*type = LARGE;
+		return (REALLOC_VALID_PTR);
+	}
+	return (REALLOC_INVALID_PTR);
+}

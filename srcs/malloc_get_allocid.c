@@ -6,13 +6,13 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 16:22:39 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/20 10:57:50 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/20 11:01:20 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-static int	init_allocid(t_allocid *alloc, const t_type type)
+inline static int	init_allocid(t_allocid *alloc, const t_type type)
 {
 	if (type == LARGE)
 		return (0);
@@ -23,8 +23,8 @@ static int	init_allocid(t_allocid *alloc, const t_type type)
 	return (1);
 }
 
-short int	malloc_get_allocid(const short int *state, const size_t nb_alloc,
-				const t_type type)
+short int			malloc_get_allocid(const short int *state,
+						const size_t nb_alloc, const t_type type)
 {
 	t_allocid	alloc;
 

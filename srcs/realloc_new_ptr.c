@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   malloc_get_number_alloc.c                          :+:      :+:    :+:   */
+/*   realloc_new_ptr.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/17 15:45:26 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/20 13:13:31 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/20 13:27:30 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/20 13:33:17 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-size_t		malloc_get_number_alloc(const size_t size, const size_t size_alloc,
-				const t_type type)
+void	*realloc_new_ptr(void *ptr, const size_t size)
 {
-	size_t	alloc;
+	void	*new_ptr;
 
-	if (size == 0)
-		return (1);
-	alloc = size / size_alloc;
-	if (size % size_alloc != 0)
-		alloc++;
-	if (type == TINY && alloc > TINY_TAB)
-		return (0);
-	else if (type == SMALL && alloc > SMALL_TAB)
-		return (0);
-	return (alloc);
+	if ((new_ptr = (void *)malloc(size)) == NULL)
+		return (NULL);
+	ft_memcpy(new_ptr, ptr, size);
+	free(ptr);
+	return (new_ptr);
 }

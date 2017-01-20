@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   malloc_get_number_alloc.c                          :+:      :+:    :+:   */
+/*   realloc_seek_header_for_addr_large.c               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/17 15:45:26 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/20 13:13:31 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/20 12:29:25 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/20 12:29:26 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-size_t		malloc_get_number_alloc(const size_t size, const size_t size_alloc,
-				const t_type type)
+t_large		*realloc_seek_header_for_addr_large(const size_t addr)
 {
-	size_t	alloc;
-
-	if (size == 0)
-		return (1);
-	alloc = size / size_alloc;
-	if (size % size_alloc != 0)
-		alloc++;
-	if (type == TINY && alloc > TINY_TAB)
-		return (0);
-	else if (type == SMALL && alloc > SMALL_TAB)
-		return (0);
-	return (alloc);
+	size_t	i;
+	t_large	*header;
+	
+	if ((header = malloc_get_large()) == NULL)
+		return (NULL)
+	i = 0;
+	while (header != NULL)
+	{
+		while (i < LARGE_TAB)
+		{
+			if (addr == (header->mem)[i])
+				return (header);
+			i++;
+		}
+		i = 0;
+		header = header->next;
+	}
+	return (NULL);
 }

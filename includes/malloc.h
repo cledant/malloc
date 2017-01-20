@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 13:00:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/20 10:07:40 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/20 11:18:48 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@
 
 # define FREE_OK 1
 # define FREE_NOP 0
-# define COMPRESS_AFTER_X_FREE 32
+
+# define REALLOC_VALID_PTR 1
+# define REALLOC_INVALID_PTR 0
 
 #endif
