@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2017/01/20 15:53:09 by cledant          ###   ########.fr        #
+#    Updated: 2017/01/20 17:09:04 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ SRCS_NAME = malloc.c malloc_init.c malloc_getpagesize.c malloc_get_tiny.c \
 			realloc.c realloc_seek_header_and_type.c \
 			realloc_seek_header_for_addr_large.c realloc_tiny.c realloc_new_ptr.c \
 			realloc_change_size_tiny.c realloc_small.c realloc_change_size_small.c \
-			realloc_large.c
+			realloc_large.c show_alloc_mem.c
 
 SRCS_PATH = ./srcs
 
