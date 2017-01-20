@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 13:03:27 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/20 13:36:29 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/20 14:52:02 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ void	*realloc_tiny(t_tiny *header, const void *ptr, const size_t new_size)
 		return (ptr);
 	else if (cur_nb_alloc > new_nb_alloc)
 	{
-		if (realloc_change_size_tiny(header, alloc_id,
-				cur_nb_alloc, new_nb_alloc) == REALLOC_INVALID_PTR)
-			return (NULL);
+		realloc_change_size_tiny(header, alloc_id, cur_nb_alloc, new_nb_alloc);
 		return (ptr);
 	}
 	else
