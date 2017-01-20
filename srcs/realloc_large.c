@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   realloc_seek_header_for_addr_large.c               :+:      :+:    :+:   */
+/*   realloc_large.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/20 12:29:25 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/20 16:08:33 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/20 15:35:50 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/20 16:07:55 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-t_large		*realloc_seek_header_for_addr_large(const size_t addr)
+void	*realloc_large(t_large *header, void *ptr, const size_t new_size)
 {
-	size_t	i;
-	t_large	*header;
+	size_t	alloc_id;
 
-	if ((header = malloc_get_large()) == NULL)
-		return (NULL);
-	i = 0;
-	while (header != NULL)
+	alloc_id = 0;
+	while (alloc_id < LARGE_TAB)
 	{
-		while (i < LARGE_TAB)
-		{
-			if (addr == (header->mem)[i])
-				return (header);
-			i++;
-		}
-		i = 0;
-		header = header->next;
+		if ((header->mem)[alloc_id] == (size_t)ptr)
+			break ;
+		alloc_id++;
 	}
-	return (NULL);
+	if ((header->mem)[alloc_id] != (size_t)ptr)
+		return (NULL);
+	if ((header->size)[alloc_id] >= new_size)
+		return (ptr);
+	else
+		return (realloc_new_ptr(ptr, new_size));
 }

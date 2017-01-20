@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 11:37:27 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/20 12:15:09 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/20 16:04:56 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		realloc_seek_header_and_type(void **header, t_type *type,
 		*type = SMALL;
 		return (REALLOC_VALID_PTR);
 	}
-	else if ((*header = realloc_seek_header_for_addr_large((size_t)ptr))
+	else if ((*header = (void *)realloc_seek_header_for_addr_large((size_t)ptr))
 				!= NULL)
 	{
 		*type = LARGE;

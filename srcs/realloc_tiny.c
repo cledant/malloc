@@ -6,13 +6,13 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 13:03:27 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/20 14:52:02 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/20 16:06:52 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-void	*realloc_tiny(t_tiny *header, const void *ptr, const size_t new_size)
+void	*realloc_tiny(t_tiny *header, void *ptr, const size_t new_size)
 {
 	short int	user_id;
 	short int	alloc_id;

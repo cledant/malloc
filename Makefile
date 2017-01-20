@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2017/01/19 19:53:16 by cledant          ###   ########.fr        #
+#    Updated: 2017/01/20 15:53:09 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,11 @@ SRCS_NAME = malloc.c malloc_init.c malloc_getpagesize.c malloc_get_tiny.c \
 			free_is_valid_alloc_small.c free_seek_nb_alloc_small.c \
 			free_deallocate_small.c free_check_to_delete_header_small.c \
 			free_delete_small.c free_large.c free_seek_and_deallocate_large.c \
-			free_check_to_delete_header_large.c free_delete_large.c
+			free_check_to_delete_header_large.c free_delete_large.c \
+			realloc.c realloc_seek_header_and_type.c \
+			realloc_seek_header_for_addr_large.c realloc_tiny.c realloc_new_ptr.c \
+			realloc_change_size_tiny.c realloc_small.c realloc_change_size_small.c \
+			realloc_large.c
 
 SRCS_PATH = ./srcs
 
