@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 11:02:37 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/20 15:54:15 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/20 16:50:08 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*realloc(void *ptr, size_t size)
 	void		*new_ptr;
 
 	if (ptr == NULL)
-		return (NULL);
+		return ((void *)malloc(size));
 	new_ptr = NULL;
 	if (realloc_seek_header_and_type(&header, &type, ptr)
 			== REALLOC_INVALID_PTR)

@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   realloc_new_ptr.c                                  :+:      :+:    :+:   */
+/*   test1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/20 13:27:30 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/20 16:29:25 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/18 16:24:39 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/20 16:34:32 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "malloc.h"
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 
-void	*realloc_new_ptr(void *ptr, const size_t size)
+#define M (1024 * 1024)
+
+void	print(char *s)
 {
-	void	*new_ptr;
+	write(1, s, strlen(s));
+}
 
-	if ((new_ptr = (void *)malloc(size)) == NULL)
-		return (NULL);
-	ft_memcpy(new_ptr, ptr, size);
-	return (new_ptr);
+int		main(void)
+{
+	char	*addr1;
+	char	*addr2;
+	char	*addr3;
+
+	addr1 = (char *)malloc(16*M);
+	strcpy(addr1, "Bonjours\n");
+	print(addr1);
+	addr2 = (char *)malloc(16 * M);
+	addr3 = (char *)realloc(addr1, 128 * M);
+	addr3[127*M] = 42;
+	print(addr3);
+	return (0);
 }

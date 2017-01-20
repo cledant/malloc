@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   realloc_new_ptr.c                                  :+:      :+:    :+:   */
+/*   test1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/20 13:27:30 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/20 16:29:25 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/18 16:24:39 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/20 16:37:30 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "malloc.h"
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 
-void	*realloc_new_ptr(void *ptr, const size_t size)
+void	print(char *s)
 {
-	void	*new_ptr;
+	write(1, s, strlen(s));
+}
 
-	if ((new_ptr = (void *)malloc(size)) == NULL)
-		return (NULL);
-	ft_memcpy(new_ptr, ptr, size);
-	return (new_ptr);
+int		main(void)
+{
+	char	*addr;
+
+	addr = (char *)malloc(16);
+	free(NULL);
+	free((void *)addr + 5);
+	if (realloc((void *)addr + 5, 10) == NULL)
+		print("Bonjours\n");
+	return (0);
 }
