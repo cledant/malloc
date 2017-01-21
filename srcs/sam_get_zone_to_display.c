@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sam_display_list.c                                 :+:      :+:    :+:   */
+/*   sam_get_zone_to_display.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/21 19:44:33 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/21 21:04:34 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/21 20:34:57 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/21 20:57:06 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-int		sam_display_list(void)
+size_t		sam_get_zone_to_display(char *type)
 {
-	char			type;
-	size_t			max_print;
+	size_t			smallest;
 	size_t			i;
-	size_t			ptr;
-	size_t			mem;
+	t_alloc_list	*list;
 
+	if ((list == sam_get_list()) == NULL)
+		return (0);
+	smallest = 0;
+	smallest--;
 	i = 0;
-	mem = 0;
-	max_print = sam_get_max_print();
-	while (i < max_print)
+	while (list != NULL)
 	{
-		if ((ptr = sam_get_zone_to_display(&type)) == 0)
-			return (SAM_NOP);
-		sam_display_zone(ptr, type, &mem);
-		i++;
-	}
-	sam_display_total_mem(mem);
-	return (SAM_OK);
+		while (i < ALLOC_TAB)
+		{
+			if ((list->ptr)[i] < smallest && (list->disp)[i] == SAM_NOT_DISP)
+			{
+				smallest = (list->ptr)[i];
+				*type = (list->ptr)[i];
+			}
+			i++;
+		}
+		i = 0;
+		list = list->next;
+	}	
+	return (sam_set_displayed(smallest));
 }

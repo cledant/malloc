@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sam_display_list.c                                 :+:      :+:    :+:   */
+/*   sam_display_zone.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/21 19:44:33 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/21 21:04:34 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/21 21:02:12 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/21 21:07:08 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-int		sam_display_list(void)
+void	sam_display_zone(const size_t ptr, const char type, size_t *mem)
 {
-	char			type;
-	size_t			max_print;
-	size_t			i;
-	size_t			ptr;
-	size_t			mem;
-
-	i = 0;
-	mem = 0;
-	max_print = sam_get_max_print();
-	while (i < max_print)
-	{
-		if ((ptr = sam_get_zone_to_display(&type)) == 0)
-			return (SAM_NOP);
-		sam_display_zone(ptr, type, &mem);
-		i++;
-	}
-	sam_display_total_mem(mem);
-	return (SAM_OK);
+	if (type == SAM_TINY)
+		sam_display_tiny(ptr, mem);
+	else if (type == SAM_SMALL)
+		sam_display_small(ptr, mem);
+	else if (type == SAM_LARGE)
+		sam_display_large(ptr, mem);
 }

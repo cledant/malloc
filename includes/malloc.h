@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 13:00:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/21 18:34:32 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/21 20:56:49 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@
 # define SAM_TINY 1
 # define SAM_SMALL 2
 # define SAM_LARGE 3
+# define SAM_NOT_DISP 0
+# define SAM_DISP 1
 
 #endif
