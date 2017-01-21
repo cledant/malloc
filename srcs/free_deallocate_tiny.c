@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 15:22:25 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 18:30:16 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/21 13:25:08 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ int		free_deallocate_tiny(t_tiny *header, const short int user_id,
 		i++;
 		j++;
 	}
-	return (FREE_NOP);
+	return (FREE_OK);
 }
