@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 13:48:23 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/19 17:27:23 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/21 15:00:41 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		free_seek_nb_alloc_tiny(const t_tiny *header, const short int user_id,
 	size_t	i;
 
 	i = alloc_id;
+	*nb_alloc = 0;
 	while (i < TINY_TAB && (header->state)[i] == user_id)
 	{
 		(*nb_alloc)++;
