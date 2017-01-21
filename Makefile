@@ -6,13 +6,13 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2017/01/20 19:02:34 by cledant          ###   ########.fr        #
+#    Updated: 2017/01/21 12:14:52 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAGS = -Werror -Wall -Wextra -O2 -fsigned-char
+CFLAGS = -Werror -Wall -Wextra -g3 -fsigned-char
 
 SHARED_CFLAGS = -fPIC
 
@@ -46,7 +46,7 @@ SRCS_NAME = malloc.c malloc_init.c malloc_getpagesize.c malloc_get_tiny.c \
 			realloc.c realloc_seek_header_and_type.c \
 			realloc_seek_header_for_addr_large.c realloc_tiny.c realloc_new_ptr.c \
 			realloc_change_size_tiny.c realloc_small.c realloc_change_size_small.c \
-			realloc_large.c show_alloc_mem.c sam_print_base.c
+			realloc_large.c calloc.c valloc.c reallocf.c reallocarray.c show_alloc_mem.c sam_print_base.c
 
 SRCS_PATH = ./srcs
 

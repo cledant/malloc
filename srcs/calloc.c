@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   calloc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/18 17:13:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/21 11:43:18 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/21 09:58:33 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/21 11:35:49 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-void	free(void *ptr)
+void	*calloc(size_t count, size_t size)
 {
-	size_t	addr;
+	void	*ptr;
 
-	write(1, "FREE\n", 5);
-	ft_putendl("ADDR TO FREE : ");
-	sam_print_base((size_t)ptr, "0123456789");
-	ft_putendl("");
-	if (ptr == NULL)
-		return ;
-//	ft_putendl("IN-FREE-1");
-	addr = (size_t)ptr;
-//	ft_putendl("IN-FREE-2");
-	if (free_tiny(addr) == FREE_OK)
-		return ;
-	else if (free_small(addr) == FREE_OK)
-		return ;
-	else if (free_large(addr) == FREE_OK)
-		return ;
-//	ft_putendl("IN-FREE-3");
+	ft_putstr("CALLOC\n");
+/*	sam_print_base(count, "0123456789");
+	ft_putstr(" : ");
+	sam_print_base(size, "0123456789");
+	ft_putstr(" = ");
+	sam_print_base(size * count, "0123456789");
+	ft_putendl("");*/
+	if ((ptr = (void *)malloc(count * size)) == NULL)
+		return (NULL);
+	ft_bzero(ptr, count * size);
+	return (ptr);
 }

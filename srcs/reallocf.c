@@ -6,19 +6,19 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 11:02:37 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/21 10:43:36 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/21 10:44:48 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-void	*realloc(void *ptr, size_t size)
+void	*reallocf(void *ptr, size_t size)
 {
 	t_type		type;
 	void		*header;
 	void		*new_ptr;
 
-	write(1, "REALLOC\n", 8);
+	write(1, "REALLOCF\n", 9);
 	if (ptr == NULL)
 		return ((void *)malloc(size));
 	new_ptr = NULL;

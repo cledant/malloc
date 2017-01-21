@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 19:57:27 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/18 15:20:15 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/21 12:00:39 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,8 @@ void	*malloc_large(const size_t size)
 	if ((header = malloc_get_available_large()) == NULL)
 		return (NULL);
 	ptr = malloc_allocate_large(header, nb_alloc);
+	ft_putendl("ALLOC_ADR : ");
+	sam_print_base((size_t)ptr, "0123456789");
+	ft_putendl("");
 	return (ptr);
 }

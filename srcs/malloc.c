@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 13:10:22 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/20 10:10:29 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/21 11:22:19 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ void	*malloc(size_t size)
 	static char	init = 0;
 	size_t		max;
 
+	ft_putstr("MALLOC : ");
+	sam_print_base(size, "0123456789");
+	ft_putendl("");
 	max = 0;
 	max--;
 	if (init == 0)

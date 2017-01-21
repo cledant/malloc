@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 19:34:19 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/18 10:55:54 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/21 12:00:50 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,8 @@ void	*malloc_small(const size_t size)
 	if ((user_id = malloc_get_userid(header->index, SMALL)) == INVALID_USER)
 		return (NULL);
 	ptr = malloc_allocate_small(header, nb_alloc, user_id, alloc_id);
+	ft_putendl("ALLOC_ADDR = ");
+	sam_print_base((size_t)ptr, "0123456789");
+	ft_putendl("");
 	return (ptr);
 }
