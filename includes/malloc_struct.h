@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 14:39:12 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/21 16:08:44 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/21 18:21:48 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define TINY_TAB 1024
 # define SMALL_TAB 4096
 # define LARGE_TAB 254
-# define ALLOC_TAB 453
+# define ALLOC_TAB 226
 
 typedef struct			s_tiny
 {
@@ -67,8 +67,12 @@ typedef struct			s_list_alloc
 {
 	struct s_list_alloc	*prev;
 	struct s_list_alloc	*next;
-	size_t				list[ALLOC_TAB];
+	unsigned char		max;
+	unsigned char		used;
+	size_t				size[ALLOC_TAB];
+	size_t				ptr[ALLOC_TAB];
 	char				disp[ALLOC_TAB];
+	char				type[ALLOC_TAB];
 }						t_list_alloc;
 
 #endif

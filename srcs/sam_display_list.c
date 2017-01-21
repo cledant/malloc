@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sam_itoa_base_stack.c                              :+:      :+:    :+:   */
+/*   sam_display_list.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/21 15:38:19 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/21 18:09:49 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/21 19:44:33 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/21 20:16:35 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-void	sam_itoa_base_stack(const size_t num, const char *base)
+int		sam_display_list(void)
 {
-	char	display[256];
-	size_t	size_base;
-	size_t	i;
+	char			type;
+	size_t			max_print;
+	size_t			i;
+	size_t			ptr;
+	size_t			mem;
 
-	if (num == 0)
-		return (ft_putchar('0'));
-	if ((size_base = ft_strlen(base)) == 1)
-		return ;
-	ft_bzero(display, 256);
 	i = 0;
-	while (num != 0)
+	mem = 0;
+	max_print = sam_get_max_print();
+	while (i < max_print)
 	{
-		display[i] = base[num % size_base];
-		num /= size_base;
+		if ((ptr = sam_get_zone_to_display(&type)) == 0)
+			return (SAM_NOP);
+		sam_display_zone(ptr, type, &mem);
 		i++;
 	}
-	while (i != 0)
-	{
-		ft_putchar(display[i - 1]);
-		i--;
-	}
+	return (SAM_OK);
 }

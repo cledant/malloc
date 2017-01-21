@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sam_itoa_base_stack.c                              :+:      :+:    :+:   */
+/*   sam_add_new_list.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/21 15:38:19 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/21 18:09:49 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/21 18:44:59 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/21 18:47:10 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-void	sam_itoa_base_stack(const size_t num, const char *base)
+int		sam_add_new_list(t_list_alloc *list)
 {
-	char	display[256];
-	size_t	size_base;
-	size_t	i;
+	t_list_alloc	*new;
 
-	if (num == 0)
-		return (ft_putchar('0'));
-	if ((size_base = ft_strlen(base)) == 1)
-		return ;
-	ft_bzero(display, 256);
-	i = 0;
-	while (num != 0)
-	{
-		display[i] = base[num % size_base];
-		num /= size_base;
-		i++;
-	}
-	while (i != 0)
-	{
-		ft_putchar(display[i - 1]);
-		i--;
-	}
+	if ((new = sam_new_list()) == NULL)
+		return (SAM_NOP);
+	list->next = new;
+	new->prev = list;
+	return (SAM_OK);
 }

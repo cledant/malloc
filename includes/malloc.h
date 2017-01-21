@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 13:00:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/20 17:01:58 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/21 18:34:32 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,12 @@
 
 # define REALLOC_VALID_PTR 1
 # define REALLOC_INVALID_PTR 0
+
+# define SAM_OK 1
+# define SAM_NOP 0
+# define SAM_OTHER 2
+# define SAM_TINY 1
+# define SAM_SMALL 2
+# define SAM_LARGE 3
 
 #endif

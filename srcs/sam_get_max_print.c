@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sam_itoa_base_stack.c                              :+:      :+:    :+:   */
+/*   sam_get_max_print.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/21 15:38:19 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/21 18:09:49 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/21 20:13:43 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/21 20:16:12 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "malloc.h"
 
-void	sam_itoa_base_stack(const size_t num, const char *base)
+size_t		sam_get_max_print(void);
 {
-	char	display[256];
-	size_t	size_base;
-	size_t	i;
+	size_t			count;
+	t_alloc_list	*list;
 
-	if (num == 0)
-		return (ft_putchar('0'));
-	if ((size_base = ft_strlen(base)) == 1)
-		return ;
-	ft_bzero(display, 256);
-	i = 0;
-	while (num != 0)
+	if ((list = sam_get_list()) == NULL)
+		return (0);
+	count = 0;
+	while (list != NULL)
 	{
-		display[i] = base[num % size_base];
-		num /= size_base;
-		i++;
+		count += list->used;
+		list = list->next;
 	}
-	while (i != 0)
-	{
-		ft_putchar(display[i - 1]);
-		i--;
-	}
+	return (count);
 }
