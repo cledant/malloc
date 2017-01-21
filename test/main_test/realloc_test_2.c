@@ -6,13 +6,13 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/21 12:31:16 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/21 13:31:26 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/21 14:46:40 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
-#define SIZE 128
+#define SIZE 2048
 
 int		main (void)
 {
@@ -31,6 +31,13 @@ int		main (void)
 	}
 	i = 0;
 	ptr = base;
+	while (i < SIZE)
+	{
+		base[i] = realloc(base[i], 64);
+		(*base)[i] = 42;
+		i++;
+	}
+	i = 0;
 	while (i < SIZE)
 	{
 		free(base[i]);

@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_seek_nb_alloc_small.c                         :+:      :+:    :+:   */
+/*   main_test_1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/19 17:50:16 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/21 14:45:28 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/21 12:31:16 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/21 13:59:15 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "malloc.h"
+#include <unistd.h>
+#include <stdlib.h>
+#define SIZE 1024
 
-int		free_seek_nb_alloc_small(const t_small *header,
-			const short int user_id, const short int alloc_id,
-			size_t *nb_alloc)
+int		main (void)
 {
+	char	**base;
 	size_t	i;
+	void	*ptr;
 
-	i = alloc_id;
-	*nb_alloc = 0;
-	while (i < SMALL_TAB && (header->state)[i] == user_id)
+	write(1, "========== DEBUG ==========\n",28);
+	i = 0;
+	base = (char **)malloc(sizeof(char *) * SIZE);
+	while (i < SIZE)
 	{
-		(*nb_alloc)++;
+		base[i] = (char *)malloc(sizeof(char) * 64);
+		(*base)[i] = 42;
 		i++;
 	}
-	if (*nb_alloc > SMALL_MAX_NB_PER_ALLOC)
-		return (FREE_NOP);
-	return (FREE_OK);
+	i = 0;
+	ptr = base;
+	while (i < SIZE)
+	{
+		free(base[i]);
+		i++;
+	}
+	free(base);
+	return (0);
 }
