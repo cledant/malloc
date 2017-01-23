@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 14:39:12 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/23 10:25:39 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/23 20:46:12 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,12 @@ typedef struct			s_display_info
 	size_t				ptr;
 	char				type;
 }						t_display_info;
+
+typedef struct			s_display_zone_tiny_small
+{
+	size_t				i;
+	size_t				addr;
+	size_t				n_alloc;
+}						t_display_zone_tiny_small;
 
 #endif
