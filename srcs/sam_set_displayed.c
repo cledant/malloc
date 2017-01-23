@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 10:49:03 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/23 10:50:44 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/23 11:11:10 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ size_t		sam_set_displayed(const size_t ptr)
 	if ((list = sam_get_list()) == NULL)
 		return (0);
 	i = 0;
+//	sam_itoa_base_stack(ptr, "0123456789ABCDEF");
 	while (list != NULL)
 	{
 		while (i < ALLOC_TAB)
@@ -30,6 +31,7 @@ size_t		sam_set_displayed(const size_t ptr)
 				return (ptr);
 			}
 			i++;
+	//		ft_putendl("ici");
 		}
 		i = 0;
 		list = list->next;

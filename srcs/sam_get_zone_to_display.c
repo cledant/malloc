@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/21 20:34:57 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/23 10:34:25 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/23 11:13:02 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ size_t		sam_get_zone_to_display(char *type, size_t *size)
 	{
 		while (i < ALLOC_TAB)
 		{
-			if ((list->ptr)[i] < smallest && (list->disp)[i] == SAM_NOT_DISP)
+			if ((list->ptr)[i] < smallest && (list->disp)[i] == SAM_NOT_DISP
+					&& (list->ptr)[i] != 0)
 			{
 				*size = (list->size)[i];
 				smallest = (list->ptr)[i];
