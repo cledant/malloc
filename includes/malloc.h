@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 13:00:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/23 10:26:01 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/23 19:12:43 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,7 @@
 # define SAM_LARGE 3
 # define SAM_NOT_DISP 0
 # define SAM_DISP 1
+
+# define SIZE_T_MULT_OVERFLOW (1UL << 32)
 
 #endif
