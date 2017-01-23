@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 09:46:44 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/23 11:57:23 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/23 12:43:30 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,15 @@ void	sam_display_zone_small(const size_t ptr, size_t *mem)
 		if (header->state[i] != NOT_USED)
 		{
 			if (begin_addr == 0)
-				begin_addr = (size_t)header->mem + i * TINY_MIN_ALLOC;
+				begin_addr = (size_t)header->mem + i * SMALL_MIN_ALLOC;
 			nb_alloc++;	
 		}
 		else
 		{
 			if (nb_alloc != 0 && begin_addr != 0)
 			{
-				*mem += nb_alloc * TINY_MIN_ALLOC;
-				sam_display_zone_alloc(begin_addr, nb_alloc * TINY_MIN_ALLOC);
+				*mem += nb_alloc * SMALL_MIN_ALLOC;
+				sam_display_zone_alloc(begin_addr, nb_alloc * SMALL_MIN_ALLOC);
 			}
 			begin_addr = 0;
 			nb_alloc = 0;
@@ -48,7 +48,7 @@ void	sam_display_zone_small(const size_t ptr, size_t *mem)
 	}
 	if (header->state[i - 1] != NOT_USED && nb_alloc != 0)
 	{
-		*mem += nb_alloc * TINY_MIN_ALLOC;
-		sam_display_zone_alloc(begin_addr, nb_alloc * TINY_MIN_ALLOC);
+		*mem += nb_alloc * SMALL_MIN_ALLOC;
+		sam_display_zone_alloc(begin_addr, nb_alloc * SMALL_MIN_ALLOC);
 	}
 }
