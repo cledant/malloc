@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 13:00:38 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/21 20:56:49 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/23 10:26:01 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "malloc_function.h"
 # include "free_function.h"
 # include "realloc_function.h"
-# include "show_alloc_mem.h"
+# include "show_alloc_mem_function.h"
 
 # define PAGESIZE 4096
 # define TINY_MIN_ALLOC 16

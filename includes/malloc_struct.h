@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 14:39:12 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/21 18:21:48 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/23 10:25:39 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,12 @@ typedef struct			s_list_alloc
 	char				disp[ALLOC_TAB];
 	char				type[ALLOC_TAB];
 }						t_list_alloc;
+
+typedef struct			s_display_info
+{
+	size_t				size;
+	size_t				ptr;
+	char				type;
+}						t_display_info;
 
 #endif

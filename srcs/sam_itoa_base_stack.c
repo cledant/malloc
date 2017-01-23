@@ -6,13 +6,13 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/21 15:38:19 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/21 18:09:49 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/23 10:27:23 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-void	sam_itoa_base_stack(const size_t num, const char *base)
+void	sam_itoa_base_stack(size_t num, const char *base)
 {
 	char	display[256];
 	size_t	size_base;

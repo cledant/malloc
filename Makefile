@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2017/01/21 15:38:43 by cledant          ###   ########.fr        #
+#    Updated: 2017/01/23 10:51:57 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,15 @@ SRCS_NAME = malloc.c malloc_init.c malloc_getpagesize.c malloc_get_tiny.c \
 			realloc.c realloc_seek_header_and_type.c \
 			realloc_seek_header_for_addr_large.c realloc_tiny.c realloc_new_ptr.c \
 			realloc_change_size_tiny.c realloc_small.c realloc_change_size_small.c \
-			realloc_large.c show_alloc_mem.c sam_itoa_base_stack.c
+			realloc_large.c show_alloc_mem.c sam_itoa_base_stack.c sam_get_list.c \
+			sam_get_last_list.c sam_new_list.c sam_add_new_list.c sam_reset_list.c \
+			sam_reset_list.c sam_get_tiny_list.c sam_get_small_list.c \
+			sam_get_large_list.c sam_display_list.c sam_get_max_print.c \
+			sam_get_zone_to_display.c sam_display_zone.c sam_clean_memory.c \
+			sam_display_zone_header.c sam_display_zone_alloc.c \
+			sam_display_zone_tiny.c sam_display_zone_small.c \
+			sam_display_zone_large.c sam_display_total_mem.c \
+			sam_display_zone_alloc.c sam_set_displayed.c
 
 SRCS_PATH = ./srcs
 

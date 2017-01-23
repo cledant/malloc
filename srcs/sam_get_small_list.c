@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/21 18:56:29 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/21 19:30:32 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/23 10:30:01 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		sam_get_small_list(void)
 {
-	t_alloc_list	*list;
+	t_list_alloc	*list;
 	t_small			*small;
 
 	if ((small = malloc_get_small()) == NULL)

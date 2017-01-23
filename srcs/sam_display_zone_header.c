@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sam_display_zone.c                                 :+:      :+:    :+:   */
+/*   sam_display_zone_header.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/21 21:02:12 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/23 10:34:49 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/23 09:28:56 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/23 09:33:02 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-void	sam_display_zone(const size_t ptr, const char type, size_t *mem,
-			const size_t zone_size)
+void	sam_display_zone_header(const char type, const size_t addr)
 {
 	if (type == SAM_TINY)
-		sam_display_zone_tiny(ptr, mem);
+		ft_putstr("TINY : ");
 	else if (type == SAM_SMALL)
-		sam_display_zone_small(ptr, mem);
+		ft_putstr("SMALL : ");
 	else if (type == SAM_LARGE)
-		sam_display_zone_large(ptr, mem, zone_size);
+		ft_putstr("LARGE : ");
+	sam_itoa_base_stack(addr, "0123456789ABCDEF");
 }
