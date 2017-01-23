@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 09:28:56 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/23 09:33:02 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/23 11:40:52 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@ void	sam_display_zone_header(const char type, const size_t addr)
 		ft_putstr("SMALL : ");
 	else if (type == SAM_LARGE)
 		ft_putstr("LARGE : ");
+	ft_putstr("Ox");
 	sam_itoa_base_stack(addr, "0123456789ABCDEF");
+	ft_putendl("");
 }
