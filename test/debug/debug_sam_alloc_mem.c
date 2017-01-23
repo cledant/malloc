@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 10:52:58 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/23 11:39:36 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/23 11:52:05 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		main(void)
 	char	*ptr;
 
 	show_alloc_mem();
+	write(1, "====================\n", 21);
 	while (i < 256)
 	{
 		ptr = (char *)malloc(16);

@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 09:46:44 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/23 11:36:42 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/23 11:57:29 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	sam_display_zone_tiny(const size_t ptr, size_t *mem)
 	size_t	nb_alloc;
 
 	header = (t_tiny *)ptr;
+	if (header->used_alloc == 0)
+		return ;
 	begin_addr = 0;
 	nb_alloc = 0;
 	i = 0;
@@ -28,7 +30,7 @@ void	sam_display_zone_tiny(const size_t ptr, size_t *mem)
 	{
 		if (header->state[i] != NOT_USED)
 		{
-			if (begin_addr != 0)
+			if (begin_addr == 0)
 				begin_addr = (size_t)header->mem + i * TINY_MIN_ALLOC;
 			nb_alloc++;	
 		}
