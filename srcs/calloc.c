@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 18:59:25 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/23 19:12:05 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/24 15:34:34 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ void	*calloc(size_t count, size_t size)
 	if ((ptr = malloc(count * size)) == NULL)
 		return (NULL);
 	ft_bzero(ptr, count * size);
+	ft_putendl("calloc");
 	return (ptr);
 }

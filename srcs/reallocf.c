@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 11:02:37 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/23 20:11:29 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/24 15:35:11 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	*reallocf(void *ptr, size_t size)
 	void		*header;
 	void		*new_ptr;
 
+	ft_putendl("reallocf");
 	if (ptr == NULL)
 		return ((void *)malloc(size));
 	new_ptr = NULL;

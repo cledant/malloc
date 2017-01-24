@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 14:35:00 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/18 10:40:18 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/24 15:40:29 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ void	*malloc_tiny(const size_t size)
 	if ((user_id = malloc_get_userid(header->index, TINY)) == INVALID_USER)
 		return (NULL);
 	ptr = malloc_allocate_tiny(header, nb_alloc, user_id, alloc_id);
+	ft_putendl("fin tiny");
 	return (ptr);
 }
