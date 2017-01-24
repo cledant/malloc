@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 10:07:52 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/23 20:07:23 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/24 15:12:46 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int		realloc_seek_header_and_type(void **header, t_type *type,
 			const void *ptr);
 t_large	*realloc_seek_header_for_addr_large(const size_t addr);
 void	*realloc_tiny(t_tiny *header, void *ptr, const size_t new_size);
-void	*realloc_new_ptr(void *ptr, const size_t size);
+void	*realloc_new_ptr(void *ptr, const size_t new_size,
+			const size_t old_size);
 void	realloc_change_size_tiny(t_tiny *header, const short int alloc_id,
 			const size_t cur_nb_alloc, const size_t new_nb_alloc);
 void	*realloc_small(t_small *header, void *ptr,

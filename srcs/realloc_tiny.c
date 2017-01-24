@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 13:03:27 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/20 16:06:52 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/24 15:14:28 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ void	*realloc_tiny(t_tiny *header, void *ptr, const size_t new_size)
 		return (ptr);
 	}
 	else
-		return (realloc_new_ptr(ptr, new_size));
+		return (realloc_new_ptr(ptr, new_size, cur_nb_alloc * TINY_MIN_ALLOC));
 }

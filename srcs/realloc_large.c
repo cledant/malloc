@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 15:35:50 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/20 16:07:55 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/24 15:17:25 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ void	*realloc_large(t_large *header, void *ptr, const size_t new_size)
 	if ((header->size)[alloc_id] >= new_size)
 		return (ptr);
 	else
-		return (realloc_new_ptr(ptr, new_size));
+		return (realloc_new_ptr(ptr, new_size, (header->size)[alloc_id]));
 }
