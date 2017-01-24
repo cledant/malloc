@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2017/01/24 09:29:28 by cledant          ###   ########.fr        #
+#    Updated: 2017/01/24 09:51:02 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,8 +70,10 @@ OBJ_SRCS = $(SRCS_NAME:%.c=$(OBJ_DIR_NAME)/%.o)
 
 NAME = libft_malloc_$(HOSTTYPE).so
 
+LINK = libft_malloc.so
+
 all :	libft $(OBJ_DIR_NAME) $(NAME)
-	ln -s $(NAME) libft_malloc.so
+	ln -Fs $(NAME) $(LINK)
 
 libft :
 	make -C $(LIBFT_PATH)
@@ -91,7 +93,7 @@ clean :
 
 fclean : clean
 	rm -rf $(NAME)
-	rm -rf libft_malloc.so
+	rm -rf $(LINK)
 	make -C $(LIBFT_PATH) fclean
 
 re : fclean all
