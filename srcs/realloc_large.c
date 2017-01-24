@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 15:35:50 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/24 15:17:25 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/24 17:53:05 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*realloc_large(t_large *header, void *ptr, const size_t new_size)
 {
 	size_t	alloc_id;
 
+	if (ptr != NULL && new_size == 0)
+		return (realloc_special_case(ptr));
 	alloc_id = 0;
 	while (alloc_id < LARGE_TAB)
 	{

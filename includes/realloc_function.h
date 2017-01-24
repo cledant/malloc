@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 10:07:52 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/24 15:12:46 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/24 17:37:26 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ void	realloc_change_size_small(t_small *header, const short int alloc_id,
 void	*realloc_large(t_large *header, void *ptr,
 			const size_t new_size);
 void	*reallocf_wrapper(void *old_ptr, void *new_ptr);
+void	*realloc_special_case(void *ptr);
 
 #endif

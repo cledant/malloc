@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   realloc_new_ptr.c                                  :+:      :+:    :+:   */
+/*   realloc_special_case.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/20 13:27:30 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/24 17:28:32 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/24 17:35:14 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/24 17:39:16 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-void	*realloc_new_ptr(void *ptr, const size_t new_size,
-			const size_t old_size)
+void	*realloc_special_case(void *ptr)
 {
 	void	*new_ptr;
 
-	if ((new_ptr = (void *)malloc(new_size)) == NULL)
-		return (NULL);
-	ft_memcpy(new_ptr, ptr, old_size);
+	new_ptr = (void *)malloc(0);
 	free(ptr);
 	return (new_ptr);
 }

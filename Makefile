@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2017/01/24 09:51:02 by cledant          ###   ########.fr        #
+#    Updated: 2017/01/24 17:39:12 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ SRCS_NAME = malloc.c malloc_init.c malloc_getpagesize.c malloc_get_tiny.c \
 			reallocf.c reallocf_wrapper.c show_alloc_mem_ex.c sam_display_list_ex.c \
 			sam_display_zone_ex.c sam_display_zone_large_ex.c \
 			sam_display_zone_tiny_ex.c sam_display_zone_small_ex.c \
-			sam_disp_zone_alloc_ex.c sam_hex_dump.c
+			sam_disp_zone_alloc_ex.c sam_hex_dump.c realloc_special_case.c
 
 SRCS_PATH = ./srcs
 

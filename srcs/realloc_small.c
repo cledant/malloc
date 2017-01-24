@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 15:10:27 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/24 15:15:54 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/24 18:00:14 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	*realloc_small(t_small *header, void *ptr, const size_t new_size)
 	if (free_is_valid_alloc_small(header, (size_t)ptr, &user_id, &alloc_id)
 			== FREE_NOP)
 		return (NULL);
+	if (ptr != NULL && new_size == 0)
+		return (realloc_special_case(ptr));
 	if (free_seek_nb_alloc_small(header, user_id, alloc_id, &cur_nb_alloc)
 			== FREE_NOP)
 		return (NULL);
@@ -36,6 +38,5 @@ void	*realloc_small(t_small *header, void *ptr, const size_t new_size)
 		return (ptr);
 	}
 	else
-		return (realloc_new_ptr(ptr, new_size,
-					cur_nb_alloc * SMALL_MIN_ALLOC));
+		return (realloc_new_ptr(ptr, new_size, cur_nb_alloc * SMALL_MIN_ALLOC));
 }
