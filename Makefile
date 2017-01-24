@@ -6,9 +6,13 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2017/01/23 22:41:26 by cledant          ###   ########.fr        #
+#    Updated: 2017/01/24 09:29:28 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+ifeq ($(HOSTTYPE),)
+	HOSTTYPE := $(shell uname -m)_$(shell uname -s)
+endif
 
 CC = gcc
 
@@ -64,9 +68,10 @@ SRCS_PATH = ./srcs
 
 OBJ_SRCS = $(SRCS_NAME:%.c=$(OBJ_DIR_NAME)/%.o)
 
-NAME = libft_malloc.so
+NAME = libft_malloc_$(HOSTTYPE).so
 
 all :	libft $(OBJ_DIR_NAME) $(NAME)
+	ln -s $(NAME) libft_malloc.so
 
 libft :
 	make -C $(LIBFT_PATH)
@@ -86,6 +91,7 @@ clean :
 
 fclean : clean
 	rm -rf $(NAME)
+	rm -rf libft_malloc.so
 	make -C $(LIBFT_PATH) fclean
 
 re : fclean all
