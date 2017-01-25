@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:24:39 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/24 13:08:28 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/25 09:22:19 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,34 +49,31 @@ int		main(void)
 		old = addr[i];
 		addr[i] = (char *)realloc(addr[i], 4096);
 		strcpy((addr)[i], "AA");
-		free(old);
 		i++;
 	}
-	ft_putendl("2-1");
+//	ft_putendl("2-1");
 	while (i < 8192 * 2)
 	{
-		ft_putendl("2-1-1");
+//		ft_putendl("2-1-1");
 		old = addr[i];
-		ft_putendl("2-1-2");
+//		ft_putendl("2-1-2");
 		addr[i] = (char *)realloc(addr[i], 8192);
-		ft_putendl("2-1-3");
+//		ft_putendl("2-1-3");
 		strcpy((addr)[i], "TEST");
-		ft_putendl("2-1-4");
-		free(old);
-		ft_putendl("2-1-5");
+//		ft_putendl("2-1-4");
+//		ft_putendl("2-1-5");
 		i++;
 	}
 
-	ft_putendl("2-2");
+//	ft_putendl("2-2");
 	while (i < 8192 * 3)
 	{
 		old = addr[i];
 		addr[i] = (char *)realloc(addr[i], 12288);
 		strcpy((addr)[i], "AHHHHHHHHHHHH");
-		free(old);
 		i++;
 	}
-	ft_putendl("2-3");
+//	ft_putendl("2-3");
 	show_alloc_mem();
 	ft_putendl("3================");
 	i = 0;
