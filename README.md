@@ -5,7 +5,7 @@ A 42 project which aims to recreate malloc.
 ## Implemented functions
 
 Memory allocation : `malloc`, `free`, `realloc`, `calloc`, `reallocf`  
-Memory usage display : `show_alloc_mem`
+Memory usage display : `show_alloc_mem`  
 Memory hex dump : `show_alloc_mem_ex`
 
 ## Compiling
