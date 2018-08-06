@@ -10,7 +10,7 @@ Memory hex dump : `show_alloc_mem_ex`
 
 ## Compiling
 
-You may compile the executable `libft_malloc.so` by running `make`.
+You may compile the library `libft_malloc.so` by running `make`.
 
 ## Usage
 
